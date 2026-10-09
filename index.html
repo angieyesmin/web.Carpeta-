@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservas Riviera Maya</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="encabezado">
+      <h1>Reservas Riviera Maya</h1>
+      <p>Selecciona y calcula tu experiencia turística</p>
+    </header>
+
+    <main class="contenedor">
+      <section class="controles" aria-label="Controles del catálogo">
+        <input
+          id="buscador"
+          type="search"
+          placeholder="Buscar experiencia..."
+        />
+
+        <select id="filtroCategoria">
+          <option value="todas">Todas las categorías</option>
+          <option value="naturaleza">Naturaleza</option>
+          <option value="cultura">Cultura</option>
+          <option value="aventura">Aventura</option>
+          <option value="gastronomia">Gastronomía</option>
+        </select>
+
+        <select id="ordenPrecio">
+          <option value="normal">Orden original</option>
+          <option value="ascendente">Menor precio</option>
+          <option value="descendente">Mayor precio</option>
+        </select>
+      </section>
+
+      <p id="estado" class="estado">Cargando experiencias...</p>
+
+      
+<section id="catalogo" class="catalogo"></section>
+
+      <section>
+  <h2>Mi reservación</h2>
+
+  <p id="totalPersonas">Total de personas: 0</p>
+
+  <div id="listaReservas"></div>
+
+  <h3 id="total">Total: $0 MXN</h3>
+</section>
+      </section>
+    </main>
+
+    <footer>
+      <p>Proyecto académico de frontend</p>
+    </footer>
+  </body>
+</html>

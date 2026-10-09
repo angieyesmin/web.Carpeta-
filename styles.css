@@ -1,0 +1,306 @@
+
+:root {
+  --primario: #00695c;
+  --secundario: #e0f2f1;
+  --oscuro: #16302d;
+  --claro: #ffffff;
+  --gris: #5f6b69;
+  --peligro: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--oscuro);
+  background: #f4f7f6;
+}
+
+/* Encabezado */
+.encabezado {
+  min-height: 220px;
+  padding: 40px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--claro);
+  background: linear-gradient(135deg, #004d40, #00a896);
+}
+
+.encabezado h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.encabezado p {
+  margin: 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+  width: min(1100px, 90%);
+  margin: 30px auto;
+}
+
+/* Buscador y filtros */
+.controles {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.controles input,
+.controles select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b8c5c2;
+  border-radius: 10px;
+  background: white;
+  font-size: 1rem;
+}
+
+.controles input:focus,
+.controles select:focus {
+  outline: 3px solid #00695c25;
+  border-color: var(--primario);
+}
+
+.estado {
+  color: var(--gris);
+  margin: 15px 0;
+}
+
+/* Botones generales */
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+/* Catálogo */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--claro);
+  box-shadow: 0 4px 12px #00000018;
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.imagen {
+  min-height: 125px;
+  display: grid;
+  place-items: center;
+  background: var(--secundario);
+  font-size: 3.5rem;
+}
+
+.informacion {
+  padding: 18px;
+}
+
+.categoria {
+  color: var(--primario);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.tarjeta input[type="number"] {
+  width: 75px;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.btn-reservar {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  background: var(--primario);
+}
+
+.btn-reservar:hover {
+  background: #004d40;
+}
+
+/* Sección Mi reservación */
+.resumen {
+  margin-top: 35px;
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px #00000018;
+}
+
+.resumen h2 {
+  margin-top: 0;
+}
+
+/* Cada experiencia reservada */
+.item-reserva {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-reserva p {
+  margin: 5px 0;
+}
+
+/* Botones para aumentar o disminuir personas */
+.controles-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-cantidad {
+  min-width: 32px;
+  padding: 5px 10px;
+  background: #eeeeee;
+  color: var(--oscuro);
+  font-weight: bold;
+}
+
+.btn-cantidad:hover:not(:disabled) {
+  background: var(--secundario);
+}
+
+.btn-cantidad:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Subtotal y botón eliminar */
+.acciones-reserva {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.btn-eliminar {
+  color: white;
+  background: var(--peligro);
+  margin-top: 8px;
+}
+
+.btn-eliminar:hover {
+  background: #8c1d18;
+}
+
+/* Resumen final: personas e importe */
+.resumen-reservacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+#totalPersonas {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-weight: 600;
+}
+
+#total {
+  margin: 0;
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Mensaje cuando no hay resultados */
+.sin-resultados {
+  grid-column: 1 / -1;
+  padding: 30px;
+  text-align: center;
+  background: white;
+  border-radius: 14px;
+}
+
+/* Pie de página */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: var(--oscuro);
+}
+
+/* Tabletas */
+@media (max-width: 850px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .controles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #buscador {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Celulares */
+@media (max-width: 550px) {
+  .catalogo,
+  .controles {
+    grid-template-columns: 1fr;
+  }
+
+  #buscador {
+    grid-column: auto;
+  }
+
+  .encabezado {
+    min-height: 180px;
+    padding: 30px 5%;
+  }
+
+  .item-reserva {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acciones-reserva {
+    align-items: flex-start;
+  }
+
+  .resumen {
+    padding: 18px;
+  }
+
+  #total {
+    font-size: 20px;
+  }
+}
